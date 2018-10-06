@@ -1,0 +1,22 @@
+<aura:component controller="ALS_TourneeController">
+    <!-- attributes -->
+    <aura:attribute name="mapMarkers" 	type="Object" />
+    <aura:attribute name="markersTitle" type="String" />
+    <aura:attribute name="showFooter" 	type="Boolean" />
+    <aura:attribute name="center" 		type="Object" />
+    <aura:attribute name="zoomLevel" 	type="Integer" />
+
+    <aura:attribute name="error" 		type="String" />
+
+    <!-- initialize map and "simulate" checkbox as clicked to fill the list -->
+    <aura:handler name="init"  			 value="{! this }" action="{! c.init }"/>
+    <aura:handler name="init"  			 value="{! this }" action="{! c.loadData }"/>
+
+    <div>
+		<lightning:map mapMarkers	="{! v.mapMarkers }"
+                       center		="{! v.center }"
+                       zoomLevel	="{! v.zoomLevel }"
+                       markersTitle	="{! v.markersTitle }"
+                       showFooter	="{ !v.showFooter }" />
+    </div>
+</aura:component>
